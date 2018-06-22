@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "Skranji";
+    src: url("../font/Skranji-Bold.ttf");
+}
+  
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+}
+body{
+    font-family: 'Skranji';
+    color: #E3B23C;
+    text-shadow: 0 3px 4px white;
+}
+.container__particles{
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+#particles-js{
+    background-image: url(../img/fisica2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+canvas{
+    display: block;
+}
+
+h1,h2,h3,h4,h5,h6{
+    position: relative;
+    z-index: 1;
+}
+.btns,
+.footer{
+    position: relative;
+    z-index: 1;
+}
+
+/**
+    Estilos del texto
+*/
+.title,.sub__title{
+    text-align: center;
+    font-size: 75px;
+    text-transform: uppercase;
+
+}
+.sub__title{
+    font-size: 35px;
+}
+
+/**
+    Estilos de los botones
+*/
+.btns{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.btns__a{
+    text-decoration: none;
+    margin: 5px 0;
+    padding: 10px 30px;
+    border-radius: 8px;
+    background-color: rgb(114, 103, 102);
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    transition: all .3s;
+    text-shadow: none;
+}
+
+.btns__a:hover{
+    background-color: rgb(65, 65, 65);
+}
+
+/**
+    Estilos del pie de pagina
+*/
+
+.footer{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    padding: 16px 0;
+    color: white;
+    text-shadow: 0 5px 10px black;
+    /*background-color: rgba(0, 0, 0, .7);*/
+}

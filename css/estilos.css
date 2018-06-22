@@ -1,0 +1,197 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+}
+
+.header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/fisica2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: nowrap;*/
+}
+    .container{
+        width: 100%;
+        height: auto;
+        
+    }
+    .container:nth-child(1){
+        /*background-color: rgb(79, 43, 112);*/
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+        .container__range{
+            width: 30%;
+            float: left;
+            display: inline-block;
+        }
+        .container__range:nth-child(2){
+            width: 40%;
+        }
+        .range{
+            flex-basis: 100%;
+            overflow: hidden;
+            flex-grow: 1;
+            background-color: #406418;
+            text-align: center;
+            padding: 5px 0;
+        }
+        .rango{
+            padding: 0 10px;
+        }
+        .coord-canvas{
+            width: 270px;
+            height: auto;
+            margin: 15px auto;
+            padding: 10px;
+        }
+
+        .dibujo-canvas{
+            background-color: green;
+            border: 0px solid black;
+            width: 600px;
+            height: 300px;
+            margin: 15px auto;
+        }
+            canvas{
+                display: inline-block;
+                width: 600px;
+                height: 300px;
+
+            }
+    .container:nth-child(2){
+        /*background-color: rgb(79, 43, 112);*/
+    }
+        .container__title{
+            color: #efffc8;
+            font-size: 20px;
+            text-align: center;
+            text-shadow: 1px 2px 3px #a5cbc3;
+        }
+
+        .container__article,
+        .container__article__datos{
+            overflow: hidden;
+            background-color: #406418;
+        }        
+        .container__article__datos{
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between; 
+        }
+        .containerVisible{
+            display: none;
+        }
+        .container__article::after{
+            clear: both;
+        }
+        .containers{
+            width: 100%;
+            margin: 10px auto;
+            text-align: center;
+        }
+            .posX,
+            .posY{
+                background-color: #85cb33;
+                width: 70%;
+                margin: 10px auto;
+                padding: 10px 10px;
+                display: block;
+                color: black;
+                border-radius: 10px;
+                text-align: left;
+                box-shadow: 1px 2px 3px #efffc8;
+            }
+            .coord .posX,
+            .coord .posY{
+                width: 30%;
+                margin: 0;
+                padding: 0;
+                margin: 10px auto;
+                padding: 10px;
+                text-align: left;
+            }
+
+    #volt{
+        margin: 15px auto;
+        color: white;
+        width: 100%;
+        background-color: gray;
+        padding: 25px;
+        font-size: 25px;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 20px 5px black;
+        display: inline-block;
+        text-align: right;
+        float: right;
+    }
+
+        .container__article__lista{
+            background-color: white;
+            height: 50px;
+            line-height: 50px;
+            padding:  0px 5%;
+            text-align: center;
+            overflow: hidden;
+        }
+            .lista--text{
+                float: left;
+                width: 60%;
+                font-display: block;
+            }
+            .voltaje{
+                width: 15%;
+                font-display: block;
+                cursor: pointer;
+            }
+            .btn{
+                width: 15%;
+                font-display: block;
+                cursor: pointer;
+            }
+
+
+/**
+
+*/
+#btn{
+    cursor: pointer;
+    display: block;
+}
+.selecion,
+.coord{
+
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.lista__li{
+    list-style: none;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: gray;
+    line-height: 30px;
+}
+#btn,
+.lista__ul{
+    margin: 10px 0;
+}
+.guardado{
+    text-align: center;
+    padding: 15px 0;
+}

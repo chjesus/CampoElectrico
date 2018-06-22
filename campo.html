@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Campo Electrico</title>
+</head>
+<body>
+    <header class="header">
+        <section class="container">
+            <div class="coord-canvas">
+                <div class="containers">
+                    <div class="posX">Posición en x: <span id="posX">0</span></div>
+                    <div class="posY">Posición en y: <span id="posY">0</span></div>
+                </div>
+            </div>
+            <div class="dibujo-canvas" id="dibujo-canvas">
+                <canvas id="lienzo1" width="600" height="300"></canvas>
+            </div>
+            <div class="coord-canvas">
+                <div id="volt">0</div>    
+            </div>
+        </section>
+        <section class="container">
+            <div class="range">
+                <div class="container__range">
+                    <h1 class="container__title">Campo Electrico </h1>
+                </div>
+                <div class="container__range">
+                    <span class="container__title rango"></span>
+                        <input type="range" min="0" max="100" step="5" id="range">
+                    <span class="container__title rango"></span>
+                </div>
+                <div class="container__range">
+                    <h2 class="container__title">Toma de datos</h2>      
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+                <article class="container__article">
+                    <div class="container__article__lista">
+                        <div class="lista--text">Seleciona el voltaje para toma de datos: </div>
+                        <select name="voltaje" id="voltaje" class="voltaje">
+                            <option value="35">35 V</option>
+                            <option value="30">30 V</option>
+                            <option value="25">25 V</option>
+                            <option value="20">20 V</option>
+                            <option value="15">15 V</option>
+                            <option value="10">10 V</option>
+                            <option value="5">5 V</option>
+                        </select>
+                        <input type="button" value="Selecionar" class="btn" id="btnVolt">
+                    </div>
+                </article>
+                <article class="container__article containerVisible">
+                    <div class="container__article__datos">
+                        <div class="coord">
+                            <div class="posX">Posición en x: <span id="posx">0</span></div>
+                            <div class="posY">Posición en y: <span id="posy">0</span></div>
+                        </div>
+                        <div class="selecion">
+                            <input type="button" value="Selecionar" id="btn">
+                            <ul class="lista__ul">
+                                <li class="lista__li"></li>
+                                <li class="lista__li"></li>
+                                <li class="lista__li"></li>
+                                <li class="lista__li"></li>
+                                <li class="lista__li"></li>
+                                <li class="lista__li"></li>
+                                <li class="lista__li"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <div class="guardado" id="guardado"></div>
+        </section>
+    </header>
+    <script type="text/javascript" src="js/main.js"></Script>
+</body>
+</html>
