@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilos.css">
     <title>Campo Electrico</title>
 </head>
@@ -42,13 +43,13 @@
                     <div class="container__article__lista">
                         <div class="lista--text">Seleciona el voltaje para toma de datos: </div>
                         <select name="voltaje" id="voltaje" class="voltaje">
-                            <option value="35">35 V</option>
-                            <option value="30">30 V</option>
-                            <option value="25">25 V</option>
-                            <option value="20">20 V</option>
-                            <option value="15">15 V</option>
-                            <option value="10">10 V</option>
-                            <option value="5">5 V</option>
+                            <option value="35" class="optionValue">35 V</option>
+                            <option value="30" class="optionValue">30 V</option>
+                            <option value="25" class="optionValue">25 V</option>
+                            <option value="20" class="optionValue">20 V</option>
+                            <option value="15" class="optionValue">15 V</option>
+                            <option value="10" class="optionValue">10 V</option>
+                            <option value="5" class="optionValue">5 V</option>
                         </select>
                         <input type="button" value="Selecionar" class="btn" id="btnVolt">
                     </div>
@@ -75,7 +76,34 @@
                 </article>
                 <div class="guardado" id="guardado"></div>
         </section>
+        <section class="circle" id="table">
+            <i class="fas fa-th-list"></i>
+        </section>
+        <div class="tabla" id="modal">
+            <div class="table__value">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>V1 = 35V</th>
+                            <th>V2 = 30V</th>
+                            <th>V3 = 25V</th>
+                            <th>V4 = 20V</th>
+                            <th>V5 = 15V</th>
+                            <th>V6 = 10V</th>
+                            <th>V7 = 5V</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn" style="text-align: center; width: 100%;">
+                <input type="button" class="btn-calculo" value="Calcular">
+                <input type="button" class="btn-cerrar" value="Cerrar">
+            </div>
+        </div>
     </header>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="js/main.js"></Script>
 </body>
 </html>
