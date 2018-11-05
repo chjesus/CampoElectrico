@@ -7,6 +7,14 @@ lienzo1=ej1.getContext("2d"); //Alisto el canvas para que funcione
 var vectorDistancia = [];
 var range = document.getElementById("range");
 var spanText = document.getElementsByClassName("rango");
+var vector = [[],[],[],[],[],[],[]];
+var vectorTotal = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]];
+var vectorAux = new Array();
+var vectorValue = new Array();
+var vectorX = new Array();
+var vectorY = new Array();
+var k = 0;
+var auxValue = 0;
 
 var rango = function rango(){
     return{
@@ -131,10 +139,8 @@ var Canvas = function Canvas(){
                 canvasPaint(distancia,numero);
             }
 
-            if(band){
-                containerx.textContent = mousePos.x/10;
-                containery.textContent = mousePos.y/10;
-            }
+            containerx.textContent = mousePos.x/10;
+            containery.textContent = mousePos.y/10;
     })
 }
 
@@ -227,35 +233,61 @@ function getMousePos(canvas, evt) {
 function selecionarVolt(){
     let btnvolt = document.getElementById("btnVolt");
     let selectVolt = document.getElementById("voltaje");
-
-
+    let containerVisible = document.getElementsByClassName("containerVisible")[0];
+    let valor;
+    let valorAux = 0;
     btnvolt.addEventListener("click",function(){
-       let containerVisible = document.getElementsByClassName("containerVisible")[0];
-       containerVisible.style.display = "block";
-       selectVolt.setAttribute("disabled","");
-       btnvolt.setAttribute("disabled","");
-       band = true;
-       let valor = selectVolt.value;
-            if(band){ 
-                verificarCoord(valor);
+        valor = selectVolt.value;
+            if(valor != valorAux){
+                containerVisible.style.display = "block";
+                selectVolt.setAttribute("disabled","");
+                btnvolt.setAttribute("disabled","");
+                valorAux = valor;
+                bandAux = true;
+                verificarCoord();
+            }else{
+               // alert("Cambien el valor!!!");
             }
-       //alert(valor);
     })
 
-    function verificarCoord(valor){
-        let btnVericar = document.getElementById("btn");
+    function verificarCoord(){
+        let option = document.getElementsByClassName("optionValue")[0];
         let mensajeVerificado = document.getElementById("guardado");
+        let btnVericar = document.getElementById("btn");
+
         let i = 0;
         let lista_li = document.getElementsByClassName("lista__li")[i];
-     
+    
+        if(valor == 35){
+            option = document.getElementsByClassName("optionValue")[0];
+            option.setAttribute("disabled","");
+        }else if(valor == 30){
+            option = document.getElementsByClassName("optionValue")[1];
+            option.setAttribute("disabled","");
+        }else if(valor == 25){
+            option = document.getElementsByClassName("optionValue")[2];
+            option.setAttribute("disabled","");
+        }else if(valor == 20){
+            option = document.getElementsByClassName("optionValue")[3];
+            option.setAttribute("disabled","");
+        }else if(valor == 15){
+            option = document.getElementsByClassName("optionValue")[4];
+            option.setAttribute("disabled","");
+        }else if(valor == 10){
+            option = document.getElementsByClassName("optionValue")[5];
+            option.setAttribute("disabled","");
+        }else{
+            option = document.getElementsByClassName("optionValue")[6];
+            option.setAttribute("disabled","");
+        }
 
-        btnVericar.addEventListener("click",function(){
+        btnVericar.addEventListener("click",function(){ 
             let valorX;
             let valorY;
             let auxVolt = parseFloat(medicionVolt.textContent);
-            valor = parseFloat(valor);
-            console.log(auxVolt);
-            console.log(valor);
+            //valor = parseFloat(valor);
+            //console.log(auxVolt);
+            //console.log(valor);
                 if(auxVolt>=valor && auxVolt<valor+1){
                     valorX = containerx.textContent;
                     valorY = containery.textContent;
@@ -263,14 +295,25 @@ function selecionarVolt(){
                     mensajeVerificado.style.backgroundColor = "#4CAF50";
                     mensajeVerificado.style.color = "white";
                         
-                    if(bandAux){
                         lista_li = document.getElementsByClassName("lista__li")[i];
+                        vectorX[i] = parseFloat(valorX);
+                        vectorY[i] = parseFloat(valorY);
+                        vectorAux[i] = auxVolt;
                         i++;
                         lista_li.style.backgroundColor = "#4CAF50";
-                            if(i==7) {i=0; bandAux=false};
-                    }else{
-                        mensajeVerificado.style.display="none";
-                    }
+                            if(i==7 && bandAux == true){
+                                for (let index = 0; index < 7; index++) {
+                                    //alert("funciona");
+                                    lista_li = document.getElementsByClassName("lista__li")[index];
+                                    lista_li.removeAttribute("style","");
+                                }
+                                i=0; 
+                                bandAux=false;
+                                containerVisible.style.display = "none";
+                                selectVolt.removeAttribute("disabled","");
+                                btnvolt.removeAttribute("disabled","");
+                                llenarTabla();
+                            }
                 }else{
                     valorX = containerx.textContent;
                     valorY = containery.textContent;
@@ -278,17 +321,63 @@ function selecionarVolt(){
                     mensajeVerificado.style.backgroundColor = "#F2DEDE";
                     mensajeVerificado.style.color = "red";
 
-                        if(bandAux){
-                            lista_li = document.getElementsByClassName("lista__li")[i];
-                            lista_li.style.backgroundColor = "red";
-                        }else{
-                            mensajeVerificado.style.display="none";
-                        }
+                        lista_li = document.getElementsByClassName("lista__li")[i];
+                        lista_li.style.backgroundColor = "red";
                 }
         })
     }
-
 }
+
+function llenarTabla(){
+    let radioValue = 0;
+    for (let index = 0; index < 7 ; index++) {
+        const suma = (vectorX[index]*vectorX[index])+(vectorY[index]*vectorY[index]);
+        radioValue = Math.sqrt(suma);
+    }
+    for (let index = 0; index < 7; index++) {
+        vector[index][k] = vectorAux[index];
+        vectorTotal[index][k] = "Pos X: "+vectorX[index]+" - Pos Y: "+vectorY[index];
+    }
+    k++;
+    vectorValue[auxValue] = radioValue;
+    auxValue++;
+}
+
+function modal(){
+    let btnCalcule = document.getElementsByClassName("btn-calculo")[0];
+    let btnModal = document.getElementById("table");
+    let ventana = document.getElementById("modal");
+    let btnClose = document.getElementsByClassName("btn-cerrar")[0];
+    let tBody = document.getElementById("tbody");
+    let fila = "";
+
+    btnModal.addEventListener("click",function(){
+
+        $("#tbody tr").remove();
+
+        for (let x = 0; x < 7; x++) {
+            for (let y = 0; y < 7; y++) {
+                fila += "<th>"+vectorTotal[x][y]+"</th>"; 
+            }
+            let btn = document.createElement("TR");
+            btn.innerHTML = fila;
+            tBody.appendChild(btn);
+            fila = "";
+        }
+        ventana.style.display = "flex";
+    })
+    btnClose.addEventListener("click",function(){
+        ventana.style.display = "none";
+    })
+    btnCalcule.addEventListener("click",function(){
+        for (let index = 0; index < vectorValue.length; index++) {
+            alert("Primera Tabla: "+vectorValue[index]); 
+        }
+       // alert("Primera Tabla: "+vectorValue[ve]);
+    })
+}
+
 canvasPaint();
 Canvas();
 selecionarVolt();
+modal();
