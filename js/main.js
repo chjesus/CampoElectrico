@@ -344,7 +344,7 @@ function llenarTabla(){
 }
 
 function modal(){
-    let btnCalcule = document.getElementsByClassName("btn-calculo")[0];
+    //let btnCalcule = document.getElementsByClassName("btn-calculo")[0];
     let btnModal = document.getElementById("table");
     let ventana = document.getElementById("modal");
     let btnClose = document.getElementsByClassName("btn-cerrar")[0];
@@ -365,13 +365,6 @@ function modal(){
             tBody.appendChild(btn);
             fila = "";
         }
-
-        ventana.style.display = "flex";
-    })
-    btnClose.addEventListener("click",function(){
-        ventana.style.display = "none";
-    })
-    btnCalcule.addEventListener("click",function(){
         $("#tfoot tr").remove();
         for (let index = 0; index < vectorValue.length; index++) {
             //alert(); 
@@ -381,7 +374,22 @@ function modal(){
         btn.innerHTML = fila;
         tfoot.appendChild(btn);
         fila = "";
+        ventana.style.display = "flex";
     })
+    btnClose.addEventListener("click",function(){
+        ventana.style.display = "none";
+    })
+    /*btnCalcule.addEventListener("click",function(){
+        $("#tfoot tr").remove();
+        for (let index = 0; index < vectorValue.length; index++) {
+            //alert(); 
+            fila += "<th>Voltaje "+(parseInt(vectorAux[index]))+": "+vectorValue[index]+"</th>";
+        }
+        let btn = document.createElement("TR");
+        btn.innerHTML = fila;
+        tfoot.appendChild(btn);
+        fila = "";
+    })*/
 }
 
 canvasPaint();
