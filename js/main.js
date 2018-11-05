@@ -349,6 +349,7 @@ function modal(){
     let ventana = document.getElementById("modal");
     let btnClose = document.getElementsByClassName("btn-cerrar")[0];
     let tBody = document.getElementById("tbody");
+    let tfoot = document.getElementById("tfoot");
     let fila = "";
 
     btnModal.addEventListener("click",function(){
@@ -364,16 +365,22 @@ function modal(){
             tBody.appendChild(btn);
             fila = "";
         }
+
         ventana.style.display = "flex";
     })
     btnClose.addEventListener("click",function(){
         ventana.style.display = "none";
     })
     btnCalcule.addEventListener("click",function(){
+        $("#tfoot tr").remove();
         for (let index = 0; index < vectorValue.length; index++) {
-            alert("Primera Tabla: "+vectorValue[index]); 
+            //alert(); 
+            fila += "<th>Voltaje "+(parseInt(vectorAux[index]))+": "+vectorValue[index]+"</th>";
         }
-       // alert("Primera Tabla: "+vectorValue[ve]);
+        let btn = document.createElement("TR");
+        btn.innerHTML = fila;
+        tfoot.appendChild(btn);
+        fila = "";
     })
 }
 
