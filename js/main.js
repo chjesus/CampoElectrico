@@ -332,7 +332,7 @@ function llenarTabla(){
     let radioValue = 0;
     for (let index = 0; index < 7 ; index++) {
         const suma = (vectorX[index]*vectorX[index])+(vectorY[index]*vectorY[index]);
-        radioValue = Math.sqrt(suma);
+        radioValue = (Math.sqrt(suma)).toFixed(2);
     }
     for (let index = 0; index < 7; index++) {
         vector[index][k] = vectorAux[index];

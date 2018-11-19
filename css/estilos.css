@@ -89,6 +89,7 @@
             justify-content: space-between; 
         }
         .containerVisible{
+            transition: all .3s;
             display: none;
         }
         .container__article::after{
@@ -137,25 +138,24 @@
 
         .container__article__lista{
             background-color: white;
-            height: 50px;
-            line-height: 50px;
-            padding:  0px 5%;
-            text-align: center;
-            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
         }
             .lista--text{
-                float: left;
                 width: 60%;
-                font-display: block;
+                text-transform: uppercase;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                text-shadow: 1px 2px 3px brown;
+                font-size: 20px;
             }
             .voltaje{
                 width: 15%;
-                font-display: block;
                 cursor: pointer;
             }
             .btn{
-                width: 15%;
-                font-display: block;
+                text-transform: uppercase;
                 cursor: pointer;
             }
 
@@ -187,6 +187,7 @@
     border-radius: 100%;
     background-color: gray;
     line-height: 30px;
+    cursor: pointer;
 }
 #btn,
 .lista__ul{
@@ -209,6 +210,13 @@
     text-align: center;
     font-size: 30px;
     cursor: pointer;
+    transform: scale(1);
+    transition: all .3s;
+}
+
+.circle:hover{
+    box-shadow: 3px 4px 5px red;
+    transform: scale(1.2);
 }
 
 .tabla{
@@ -273,17 +281,33 @@ thead tr, thead th{
     transition: all .3s;
 }
 
+.btn-select{
+    outline: none;
+    padding: .5em 1em;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 20px;
+    transition: all .3s;
+}
+.btn-select:hover{
+    box-shadow: 2px 3px 4px black;
+}
+
 .btn-calculo{
     background-color: green;
 }
-    .btn-calculo:hover{
-        background-color: rgba(0, 128, 0, .7);
-    }   
+
+.btn-calculo:hover{
+    background-color: rgba(0, 128, 0, .7);
+}   
 
 .btn-cerrar{
     background-color: red;
 }
 
-    .btn-cerrar:hover{
-        background-color: rgba(255, 0, 0, .7);
-    }
+.btn-cerrar:hover{
+    background-color: rgba(255, 0, 0, .7);
+}
